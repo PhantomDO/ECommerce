@@ -1,0 +1,10 @@
+
+{% block body %}
+    <h1> ({{ message }}) </h1>
+    {% if user is defined %}
+        <h3>
+            Username : ({{ user.getUsername() }})
+            Password : ({{ user.getPassword() }})
+        </h3>
+    {% endif %}
+{% endblock %}
