@@ -1,11 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ form_start(form) }}
-        {{ form_row(form.title) }}
-        {{ form_row(form.price) }}
-        {{ form_widget(form.city) }}
-
-    <button type="submit">Search</button>
-    {{ form_end(form) }}
+    <div class="jumbotron">
+        <div class="container">
+            {{ form_start(form) }}
+            <div class="form_row">
+                <div class="col">
+                    {{ form_row(form.keyword) }}
+                </div>
+                <div class="col">
+                    {{ form_row(form.maxPrice) }}
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
 {% endblock %}

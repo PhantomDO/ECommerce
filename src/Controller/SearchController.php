@@ -3,6 +3,8 @@
 
 namespace App\Controller;
 
+use App\Entity\PropertySearch;
+use App\Form\PropertySearchType;
 use App\Form\PropertyType;
 use App\Form\UserType;
 use App\Entity\Property;
@@ -22,23 +24,23 @@ class SearchController extends AbstractController
     public function SearchApi(Request $request)
     {
         // Recup property de recherche et son form
-        $property = new Property();
+        $search = new PropertySearch();
 
         //dd($user);
-        $form = $this->createForm(PropertyType::class, $property);
+        $form = $this->createForm(PropertySearchType::class, $search);
         // Test d'envoie du form
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid())
         {
-            $data = [
-                'title' => $form->get('title')->getData(),
-                'price' => $form->get('price')->getData(),
+            /*$data = [
+                'title' => $form->get('keyword')->getData(),
+                'price' => $form->get('maxPrice')->getData(),
                 'city' => $form->get('city')->getData(),
             ];
 
-            return new JsonResponse($data);
+            return new JsonResponse($data);*/
             // Renvoie la page
-            //return $this->redirectToRoute("search_api");
+            return $this->redirectToRoute("search_api");
         }
 
         return $this->render(
