@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7c7ecac-898d-4141-89db-832645618caf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Property.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Property.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -148,10 +149,12 @@
   <component name="ProjectId" id="1TNY97bjP9A6OUuyaxlNpTNB2hO" />
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="sqlserver" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -189,7 +192,15 @@
       <workItem from="1569847140425" duration="64000" />
       <workItem from="1571229055894" duration="3924000" />
       <workItem from="1573301867464" duration="1017000" />
-      <workItem from="1573468576839" duration="3852000" />
+      <workItem from="1573468576839" duration="4013000" />
+      <workItem from="1573493658265" duration="263000" />
+      <workItem from="1573499266762" duration="94000" />
+      <workItem from="1573634935933" duration="76000" />
+      <workItem from="1573809676837" duration="4000" />
+      <workItem from="1574085810147" duration="46000" />
+      <workItem from="1574095903897" duration="6000" />
+      <workItem from="1574263551480" duration="1803000" />
+      <workItem from="1574265390681" duration="2651000" />
     </task>
     <servers />
   </component>

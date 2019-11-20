@@ -3,9 +3,16 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormTypeInterface;
+use Symfony\Component\Form\FormView;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PropertyRepository")
+ * @UniqueEntity(fields="title")
  */
 class Property
 {
@@ -34,7 +41,7 @@ class Property
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $City;
+    private $city;
 
 
     public function getId(): ?int
@@ -80,14 +87,13 @@ class Property
 
     public function getCity(): ?string
     {
-        return $this->City;
+        return $this->city;
     }
 
-    public function setCity(string $City): self
+    public function setCity(string $city): self
     {
-        $this->City = $City;
+        $this->city = $city;
 
         return $this;
     }
-
 }
