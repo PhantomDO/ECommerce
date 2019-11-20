@@ -32,7 +32,6 @@ class SearchController extends AbstractController
         {
             $data = [
                 'title' => $form->get('title')->getData(),
-                'description' => $form->get('description')->getData(),
                 'price' => $form->get('price')->getData(),
                 'city' => $form->get('city')->getData(),
             ];
