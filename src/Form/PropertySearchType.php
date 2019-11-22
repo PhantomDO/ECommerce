@@ -18,16 +18,21 @@ class PropertySearchType extends AbstractType
 
         $builder
             ->add('keyword')
-            ->add('category', ChoiceType::class, [
-                'choices' => [
-                    'label' => 'valeur'
-                ]
-            ])
             ->add('maxPrice', IntegerType::class, [
                 'required' => false,
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Prix Maximal'
+                ]
+            ])
+            ->add('category', ChoiceType::class, [
+                'choices' => [
+                    'label' => 'valeur'
+                ]
+            ])
+            ->add('subcategory', ChoiceType::class, [
+                'choices' => [
+                    'label' => 'valeur'
                 ]
             ])
         ;

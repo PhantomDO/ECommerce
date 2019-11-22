@@ -12,7 +12,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @UniqueEntity(fields="email", message="Email already taken")
  * @UniqueEntity(fields="username", message="Username already taken")
  */
-class User implements UserInterface
+class User implements UserInterface, \Serializable
 {
     /**
      * @ORM\Id()
@@ -51,7 +51,7 @@ class User implements UserInterface
     private $roles;
 
     public function __construct() {
-        $this->roles = array('ROLE_USER');
+        $this->roles = array('ROLE_ADMIN', 'ROLE_USER');
     }
 
     public function getId(): ?int
@@ -121,5 +121,23 @@ class User implements UserInterface
 
     public function eraseCredentials()
     {
+    }
+
+    public function serialize()
+    {
+        return serialize([
+            $this->id,
+            $this->username,
+            $this->password
+        ]);
+    }
+
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->username,
+            $this->password
+        ) = unserialize($serialized, ['allowed classes' => false]);
     }
 }

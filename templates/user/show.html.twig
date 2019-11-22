@@ -1,10 +1,9 @@
 
 {% block body %}
-    <h1> ({{ message }}) </h1>
+    <h1> {{ message }} </h1>
     {% if user is defined %}
         <h3>
-            Username : ({{ user.getUsername() }})
-            Password : ({{ user.getPassword() }})
+            Username : {{ user.getUsername() }}
         </h3>
     {% endif %}
 {% endblock %}
