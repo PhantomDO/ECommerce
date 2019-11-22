@@ -4,7 +4,7 @@
 namespace App\Controller;
 
 use App\Repository\PropertyRepository;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 use phpDocumentor\Reflection\DocBlock\Tags\Property;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,10 +21,10 @@ class PropertyController extends AbstractController
 
     private $entityManager;
 
-    public function __construct(PropertyRepository $repository, ObjectManager $objectManager)
+    public function __construct(PropertyRepository $repository, EntityManagerInterface $entityManager)
     {
         $this->repository = $repository;
-        $this->entityManager = $objectManager;
+        $this->entityManager = $entityManager;
     }
 
     /**
