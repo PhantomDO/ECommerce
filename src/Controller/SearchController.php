@@ -21,24 +21,18 @@ class SearchController extends AbstractController
     /**
      * @Route("/search_api", name="search_api")
      */
-    public function SearchApi(Request $request)
+    public function SearchApi(Request $request, EntityManagerInterface $em)
     {
         // Recup property de recherche et son form
         $search = new PropertySearch();
 
-        //dd($user);
         $form = $this->createForm(PropertySearchType::class, $search);
         // Test d'envoie du form
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid())
         {
-            /*$data = [
-                'title' => $form->get('keyword')->getData(),
-                'price' => $form->get('maxPrice')->getData(),
-                'city' => $form->get('city')->getData(),
-            ];
-
-            return new JsonResponse($data);*/
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->flush();
             // Renvoie la page
             return $this->redirectToRoute("search_api");
         }

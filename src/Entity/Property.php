@@ -9,16 +9,16 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Cocur\Slugify\Slugify;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PropertyRepository")
- * @UniqueEntity(fields="title")
  */
 class Property
 {
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue()
+     * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
      */
     private $id;
@@ -43,6 +43,59 @@ class Property
      */
     private $city;
 
+    /**
+     * @ORM\Column(type="boolean", options={"default": false})
+     */
+    private $sold = false;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $created_at;
+
+
+    public function __construct()
+    {
+        $this->created_at = new \DateTime();
+    }
+
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedAt(): \DateTime
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * @param \DateTime $created_at
+     * @return Property
+     */
+    public function setCreatedAt(\DateTime $created_at): Property
+    {
+        $this->created_at = $created_at;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isSold(): bool
+    {
+        return $this->sold;
+    }
+
+    /**
+     * @param bool $sold
+     * @return Property
+     */
+    public function setSold(bool $sold): Property
+    {
+        $this->sold = $sold;
+        return $this;
+    }
+
 
     public function getId(): ?int
     {
@@ -59,6 +112,11 @@ class Property
         $this->title = $title;
 
         return $this;
+    }
+
+    public function getSlug() : string
+    {
+        return (new Slugify())->slugify($this->title);
     }
 
     public function getDescription(): ?string
@@ -83,6 +141,11 @@ class Property
         $this->price = $price;
 
         return $this;
+    }
+
+    public function getFormattedPrice():string
+    {
+        return number_format($this->price, 0, '', ' ');
     }
 
     public function getCity(): ?string
