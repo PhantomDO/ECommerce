@@ -5,22 +5,50 @@
 {% block body %}
     <div class="jumbotron">
         <div class="container">
+
             <div class="row">
                 <div class="col-md-8">
 
                 </div>
                 <div class="col-md-4">
                     <h1>{{ property.title }}</h1>
-                    <h2>{{ property.description }}</h2>
                     <div class="text-primary" style="font-size: 4rem; font-weight: bold;">{{ property.formattedPrice }} €</div>
                     <a href="#" class="btn btn-primary">Contacter le fraté</a>
                 </div>
             </div>
         </div>
     </div>
+        <div class="container">
+            <p>
+               {{ property.CreatedAt | nl2br }}
+            </p>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <h2>Caractéristiques</h2>
+                    <table class="table table-striped">
+                        <tr>
+                            <td>Intitulé</td>
+                            <td>{{ property.title }}</td>
+                        </tr>
+                        <tr>
+                            <td>Localisation</td>
+                            <td>{{ property.city }}</td>
+                        </tr>
+                        <tr>
+                            <td>Description</td>
+                            <td>{{ property.description }}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-4">
+                    <h2>Spécificité</h2>
+                </div>
+            </div>
 
 
-    <p>
-        {{ property.description | nl2br }}
-    </p>
+        </div>
+
+
+
 {% endblock %}

@@ -15,9 +15,11 @@ class PropertyType extends AbstractType
         $builder
             ->add('title')
             ->add('price')
+            ->add('description')
             ->add('city', ChoiceType::class, [
                 'choices' => [
-                    'Lyon' => 'Lyon'
+                    'Lyon' => 'Lyon',
+                    'Marseille' => 'Marseille'
                 ]
             ])
         ;
@@ -27,6 +29,7 @@ class PropertyType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Property::class,
+            'translation_domain' => 'forms'
         ]);
     }
 }

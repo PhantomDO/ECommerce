@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Gérer le Fraté Club' %}
+
+{% block body %}
+
+    <div class="container mt-4">
+        <h1>Gerer les biens des frates</h1>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                {% for property in properties %}
+                    <td>{{ property.title }}</td>
+                    <td>
+                        <a href="{{ path('admin.property.edit', {id: property.id}) }}" class="btn btn-secondary">Editer</a>
+                    </td>
+                {% endfor %}
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="text-right">
+            <a href="{{ path('admin.property.new') }}" class="btn btn-primary">Créer un nouveau bien</a>
+        </div>
+
+    </div>
+
+{% endblock %}
