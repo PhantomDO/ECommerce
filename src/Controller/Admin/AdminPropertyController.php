@@ -2,6 +2,8 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Category;
+use App\Entity\CategoryType;
 use App\Entity\Property;
 use App\Form\PropertyType;
 use App\Repository\PropertyRepository;
@@ -13,7 +15,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminPropertyController extends AbstractController
 {
+    /**
+     * @var PropertyRepository
+     */
     private $repository;
+
+    /**
+     * @var EntityManagerInterface
+     */
     private $em;
 
     public function __construct(PropertyRepository $repository, EntityManagerInterface $em)

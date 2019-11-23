@@ -4,6 +4,8 @@
 namespace App\Entity;
 
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+
 class PropertySearch
 {
     /**
@@ -50,18 +52,18 @@ class PropertySearch
     }
 
     /**
-     * @return string|null
+     * @return Category|null
      */
-    public function getCategory(): ?string
+    public function getCategory(): ?Category
     {
         return $this->category;
     }
 
     /**
-     * @param string|null $category
+     * @param Category|null $category
      * @return PropertySearch
      */
-    public function setCategory(?string $category): PropertySearch
+    public function setCategory(?Category $category): PropertySearch
     {
         $this->category = $category;
         return $this;

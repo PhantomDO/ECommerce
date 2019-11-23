@@ -44,6 +44,18 @@ class PropertyRepository extends ServiceEntityRepository
                 ->setParameter('keyword', '%' . $search->getKeyword() . '%');
         }
 
+        if($search->getCategory()){
+            $query = $query
+                ->andWhere(':category = p.category')
+                ->setParameter('category', $search->getCategory());
+        }
+
+  /*      if($search->getSubcategory()->count() > 0) {
+            $query = $query
+                ->andWhere()
+                ->setParameter()
+        }*/
+
         return $query->getQuery();
     }
 

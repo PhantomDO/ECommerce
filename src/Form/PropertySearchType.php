@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Category;
 use App\Entity\PropertySearch;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -25,10 +27,12 @@ class PropertySearchType extends AbstractType
                     'placeholder' => 'Prix Maximal'
                 ]
             ])
-            ->add('category', ChoiceType::class, [
-                'choices' => [
-                    'label' => 'valeur'
-                ]
+            ->add('category', EntityType::class, [
+                'required' => false,
+                'label' => false,
+                'class' => Category::class,
+                'choice_label' => 'name'
+
             ])
             ->add('subcategory', ChoiceType::class, [
                 'choices' => [
