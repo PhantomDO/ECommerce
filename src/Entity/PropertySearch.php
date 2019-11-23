@@ -27,6 +27,11 @@ class PropertySearch
     private $keyword;
 
     /**
+     * @var App\Entity\User|null
+     */
+    private $username;
+
+    /**
      * @return int|null
      */
     public function getMaxPrice(): ?int
@@ -97,5 +102,25 @@ class PropertySearch
         $this->keyword = $keyword;
         return $this;
     }
+
+    /**
+     * @return App\Entity\User|null
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param App\Entity\User|null $username
+     * @return PropertySearch
+     */
+    public function setUsername($username): PropertySearch
+    {
+        $this->username = $username;
+        return $this;
+    }
+
+
 
 }

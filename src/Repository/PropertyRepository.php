@@ -10,6 +10,7 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\Query;
 use Doctrine\ORM\QueryBuilder;
+use Doctrine\ORM\Query\Expr\Join as Join;
 
 /**
  * @method Property|null find($id, $lockMode = null, $lockVersion = null)
@@ -37,30 +38,32 @@ class PropertyRepository extends ServiceEntityRepository
                 ->setParameter('maxprice', $search->getMaxPrice());
         }
 
-        /*if ($search->getKeyword()){
+        if ($search->getKeyword()){
             $query = $query
-                ->andWhere('p.title like :keyword')
-                ->setParameter('keyword', $search->getKeyword());
-        }*/
+                ->andWhere('p.title LIKE :keyword')
+                ->setParameter('keyword', '%' . $search->getKeyword() . '%');
+        }
 
         return $query->getQuery();
     }
 
     /**
-     * @param User $user
+     * @param $search
+     * @return Property[]
      */
-    public function findAllByUser(User $user)
+    public function findAllByUser($search) : array
     {
         $query = $this->findVisibleQuery();
 
-        if ($user->getId()){
+        if ($search->getUsername()){
             $query = $query
-                ->andWhere('p.username == :username_id')
-                ->setParameter('username_id', $user->getId());
+                ->leftJoin('p.username', 'u')
+                ->andWhere('u.id = :user')
+                ->setParameter('user', $search->getId());
         }
 
-       // dd($query->getQuery());
-        return $query->getQuery();
+        //dd($query->getQuery());
+        return $query->getQuery()->getResult();
     }
 
     /**
