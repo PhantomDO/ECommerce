@@ -66,7 +66,7 @@ class PropertyController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->flush();
             // Renvoie la page
-            return $this->redirectToRoute("property.index");
+            return $this->redirectToRoute("biens");
         }*/
 
         $properties = $paginator->paginate(

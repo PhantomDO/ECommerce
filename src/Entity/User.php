@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -50,8 +52,14 @@ class User implements UserInterface, \Serializable
      */
     private $roles;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Property", mappedBy="username")
+     */
+    private $properties;
+
     public function __construct() {
-        $this->roles = array('ROLE_ADMIN', 'ROLE_USER');
+        $this->roles = array('ROLE_USER');
+        $this->properties = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -139,5 +147,36 @@ class User implements UserInterface, \Serializable
             $this->username,
             $this->password
         ) = unserialize($serialized, ['allowed classes' => false]);
+    }
+
+    /**
+     * @return Collection|Property[]
+     */
+    public function getProperties(): Collection
+    {
+        return $this->properties;
+    }
+
+    public function addProperty(Property $property): self
+    {
+        if (!$this->properties->contains($property)) {
+            $this->properties[] = $property;
+            $property->setUsername($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProperty(Property $property): self
+    {
+        if ($this->properties->contains($property)) {
+            $this->properties->removeElement($property);
+            // set the owning side to null (unless already changed)
+            if ($property->getUsername() === $this) {
+                $property->setUsername(null);
+            }
+        }
+
+        return $this;
     }
 }

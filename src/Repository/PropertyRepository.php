@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Property;
 use App\Entity\PropertySearch;
+use App\Entity\User;
 use App\Form\PropertyType;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
@@ -42,6 +43,23 @@ class PropertyRepository extends ServiceEntityRepository
                 ->setParameter('keyword', $search->getKeyword());
         }*/
 
+        return $query->getQuery();
+    }
+
+    /**
+     * @param User $user
+     */
+    public function findAllByUser(User $user)
+    {
+        $query = $this->findVisibleQuery();
+
+        if ($user->getId()){
+            $query = $query
+                ->andWhere('p.username == :username_id')
+                ->setParameter('username_id', $user->getId());
+        }
+
+       // dd($query->getQuery());
         return $query->getQuery();
     }
 
