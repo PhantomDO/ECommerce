@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Category;
 use App\Entity\PropertySearch;
+use App\Entity\SubCategory;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -34,10 +35,11 @@ class PropertySearchType extends AbstractType
                 'choice_label' => 'name'
 
             ])
-            ->add('subcategory', ChoiceType::class, [
-                'choices' => [
-                    'label' => 'valeur'
-                ]
+            ->add('subcategory', EntityType::class, [
+                'required' => false,
+                'label' => false,
+                'class' => SubCategory::class,
+                'choice_label' => 'name'
             ])
         ;
     }

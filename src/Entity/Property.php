@@ -86,6 +86,11 @@ class Property
      */
     private $category;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\SubCategory", inversedBy="properties")
+     */
+    private $subcategory;
+
 
     public function __construct()
     {
@@ -250,6 +255,18 @@ class Property
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getSubCategory(): ?SubCategory
+    {
+        return $this->subcategory;
+    }
+
+    public function setSubCategory(?SubCategory $subcategory): self
+    {
+        $this->subcategory = $subcategory;
 
         return $this;
     }

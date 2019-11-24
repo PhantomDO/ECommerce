@@ -7,9 +7,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\SubCategoryRepository")
  */
-class Category
+class SubCategory
 {
     /**
      * @ORM\Id()
@@ -24,19 +24,19 @@ class Category
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Property", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="App\Entity\Property", mappedBy="subCategory")
      */
     private $properties;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\SubCategory", mappedBy="category")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="subCategory", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $subcategory;
+    private $category;
 
     public function __construct()
     {
         $this->properties = new ArrayCollection();
-        $this->subcategory = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -68,7 +68,7 @@ class Category
     {
         if (!$this->properties->contains($property)) {
             $this->properties[] = $property;
-            $property->setCategory($this);
+            $property->setSubCategory($this);
         }
 
         return $this;
@@ -79,10 +79,22 @@ class Category
         if ($this->properties->contains($property)) {
             $this->properties->removeElement($property);
             // set the owning side to null (unless already changed)
-            if ($property->getCategory() === $this) {
-                $property->setCategory(null);
+            if ($property->getSubCategory() === $this) {
+                $property->setSubCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

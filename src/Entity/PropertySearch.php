@@ -19,7 +19,7 @@ class PropertySearch
     private $category;
 
     /**
-     * @var string|null
+     * @var SubCategory|null
      */
     private $subcategory;
 
@@ -70,18 +70,18 @@ class PropertySearch
     }
 
     /**
-     * @return string|null
+     * @return SubCategory|null
      */
-    public function getSubcategory(): ?string
+    public function getSubcategory(): ?SubCategory
     {
         return $this->subcategory;
     }
 
     /**
-     * @param string|null $subcategory
+     * @param SubCategory|null $subcategory
      * @return PropertySearch
      */
-    public function setSubcategory(?string $subcategory): PropertySearch
+    public function setSubcategory(?SubCategory $subcategory): PropertySearch
     {
         $this->subcategory = $subcategory;
         return $this;

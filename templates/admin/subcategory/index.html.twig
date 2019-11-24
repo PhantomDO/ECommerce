@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Gérer le Fraté Club' %}
+
+{% block body %}
+
+    <div class="container mt-4">
+        <h1>Gerer les sous-catégories des frates</h1>
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for subcategory in subcategories %}
+            <tr>
+                <td>{{ subcategory.name }}</td>
+                <td>
+                    <a href="{{ path('admin.subcategory.edit', {id: subcategory.id}) }}" class="btn btn-secondary">Editer</a>
+                    <form method="post" action="{{ path('admin.subcategory.delete', {id: subcategory.id}) }}" style="display:
+                    inline-block" onsubmit="return confirm('Etes vous vraiment sûr ?')">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ subcategory.id ) }}">
+                        <button class="btn btn-danger">Supprimer</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="text-right">
+            <a href="{{ path('admin.subcategory.new') }}" class="btn btn-primary">Créer une nouvelle sous-catégorie</a>
+        </div>
+
+    </div>
+
+{% endblock %}
