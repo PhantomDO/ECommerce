@@ -9,11 +9,13 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 use Cocur\Slugify\Slugify;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PropertyRepository")
@@ -33,10 +35,13 @@ class Property
      * @var string|null
      * @ORM\Column(type="string", length=255)
      */
-    //private $filename;
+    private $filename;
 
     /**
      * @var File|null
+     * @Assert\Image(
+     *     mimeTypes="image/jpeg"
+     * )
      * @Vich\UploadableField(mapping="property_image", fileNameProperty="filename")
      */
     private $imageFile;
@@ -90,6 +95,11 @@ class Property
      * @ORM\ManyToOne(targetEntity="App\Entity\SubCategory", inversedBy="properties")
      */
     private $subcategory;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updated_at;
 
 
     public function __construct()
@@ -198,25 +208,25 @@ class Property
         return $this;
     }
 
-    /*
+
     /**
      * @return string|null
      */
-  /*  public function getFilename(): ?string
+    public function getFilename(): ?string
     {
         return $this->filename;
     }
-*/
+
     /**
      * @param string|null $filename
      * @return Property
      */
-   /* public function setFilename(?string $filename): Property
+    public function setFilename(?string $filename): Property
     {
         $this->filename = $filename;
         return $this;
     }
-    */
+
     /**
      * @return File|null
      */
@@ -232,6 +242,9 @@ class Property
     public function setImageFile(?File $imageFile): Property
     {
         $this->imageFile = $imageFile;
+        if ($this->imageFile instanceof UploadedFile) {
+            $this->updated_at = new \DateTime('now');
+        }
         return $this;
     }
 
@@ -267,6 +280,18 @@ class Property
     public function setSubCategory(?SubCategory $subcategory): self
     {
         $this->subcategory = $subcategory;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updated_at;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updated_at): self
+    {
+        $this->updated_at = $updated_at;
 
         return $this;
     }
