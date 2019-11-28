@@ -38,42 +38,25 @@ class PropertyController extends AbstractController
      */
     public function index(PaginatorInterface $paginator, Request $request) : Response
     {
-        /*$property = $this->repository->findAllVisible();
-        dd($property);
-
-        $property = new \App\Entity\Property();
-        $property->setTitle('Le premier bien des frate')
-            ->setPrice(999)
-            ->setDescription('oh putain frate le premier bien eh')
-            ->setCity('Lyon');
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($property);
-        $entityManager->flush();
-        */
-
-        // Créer une entity qui représente la recherche
-        // Créer un formulaire
-        // Gérer le traitement dans le controleur
-
-        // Recup property de recherche et son form
         $search = new PropertySearch();
 
         $form = $this->createForm(PropertySearchType::class, $search);
         // Test d'envoie du form
         $form->handleRequest($request);
-        /*if ($form->isSubmitted() && $form->isValid())
+        if ($form->isSubmitted() && $form->isValid())
         {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->flush();
             // Renvoie la page
-            return $this->redirectToRoute("biens");
-        }*/
+            //return $this->redirectToRoute("property.index");
+        }
 
         $properties = $paginator->paginate(
             $this->repository->findAllVisibleQuery($search),
             $request->query->getInt('page', 1),
             12
         );
+
         return $this->render('property/index.html.twig', [
             'current_menu' => 'properties',
             'properties' => $properties,

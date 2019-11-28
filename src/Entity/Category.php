@@ -86,4 +86,12 @@ class Category
 
         return $this;
     }
+
+    /**
+     * @return Collection
+     */
+    public function getSubcategory(): Collection
+    {
+        return $this->subcategory;
+    }
 }

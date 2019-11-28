@@ -26,9 +26,9 @@ class PropertyRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return Query
+     * @return Property[]
      */
-    public function findAllVisibleQuery(PropertySearch $search) : Query
+    public function findAllVisibleQuery(PropertySearch $search) : array
     {
         $query = $this->findVisibleQuery();
 
@@ -56,7 +56,7 @@ class PropertyRepository extends ServiceEntityRepository
                 ->setParameter('subcategory', $search->getSubcategory());
         }
 
-        return $query->getQuery();
+        return $query->getQuery()->getResult();
     }
 
     /**

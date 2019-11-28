@@ -24,12 +24,12 @@ class SubCategory
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Property", mappedBy="subCategory")
+     * @ORM\OneToMany(targetEntity="App\Entity\Property", mappedBy="subcategory")
      */
     private $properties;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="subCategory", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="subcategory", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
