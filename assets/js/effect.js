@@ -1,4 +1,5 @@
 
+console.log('Hello Webpack Encore! Edit me in assets/js/effect.js');
 
 $(document).on('change', '#property_category', '#property_subcategory', function(){
     let $field = $(this);

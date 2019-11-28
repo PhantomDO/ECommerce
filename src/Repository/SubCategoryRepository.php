@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Category;
 use App\Entity\SubCategory;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
@@ -17,6 +18,25 @@ class SubCategoryRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, SubCategory::class);
+    }
+
+    /**
+     * @param Category $search
+     * @return SubCategory[]
+     */
+    public function findAllByCategory(Category $search) : array
+    {
+        $query = $this->createQueryBuilder('sc');
+
+        if ($search->getSubcategory()){
+            $query = $query
+                ->leftJoin('sc.name', 'c')
+                ->andWhere('c.id = :user')
+                ->setParameter('user', $search->getId());
+        }
+
+        //dd($query->getQuery());
+        return $query->getQuery()->getResult();
     }
 
     // /**

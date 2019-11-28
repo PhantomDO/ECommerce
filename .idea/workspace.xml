@@ -3,9 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="a7c7ecac-898d-4141-89db-832645618caf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/effect.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/effect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/PropertySearchType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PropertySearchType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/PropertyType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PropertyType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/SubCategoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/SubCategoryRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/property/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/property/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -183,15 +190,15 @@
     <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\IUT Projet\Symfony\ECommerce\src\Controller\Admin" />
-      <recent name="C:\Users\Herst\TutoProjetSymf\templates\pages" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\IUT Projet\Symfony\ECommerce\templates\admin\subcategory" />
       <recent name="C:\IUT Projet\Symfony\ECommerce\templates\admin\category" />
       <recent name="C:\Users\donno\Documents\IUT\PHP\PROJET\ECommerce\templates\user" />
       <recent name="C:\Users\donno\Documents\IUT\PHP\PROJET\ECommerce\src\Controller" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\IUT Projet\Symfony\ECommerce\src\Controller\Admin" />
+      <recent name="C:\Users\Herst\TutoProjetSymf\templates\pages" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -252,7 +259,9 @@
       <workItem from="1574841024046" duration="12464000" />
       <workItem from="1574871000646" duration="1107000" />
       <workItem from="1574878796659" duration="6659000" />
-      <workItem from="1574925116278" duration="4854000" />
+      <workItem from="1574925116278" duration="6400000" />
+      <workItem from="1574941314339" duration="213000" />
+      <workItem from="1574943415025" duration="2462000" />
     </task>
     <servers />
   </component>

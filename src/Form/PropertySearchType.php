@@ -16,6 +16,7 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use App\Repository\PropertyRepository;
 
 class PropertySearchType extends AbstractType
 {
@@ -40,12 +41,14 @@ class PropertySearchType extends AbstractType
                 'choice_label' => "name"
             ])
 
-            /*->add('subcategory', EntityType::class, [
+            ->add('subcategory', EntityType::class, [
                 'required' => false,
                 'label' => false,
                 'class' => SubCategory::class,
-                'choice_label' => 'name'
-            ])*/
+                'choice_label' => function(){
+
+                }
+            ])
         ;
 
         $builder->get('category')->addEventListener(

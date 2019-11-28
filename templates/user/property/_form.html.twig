@@ -1,3 +1,4 @@
+{% block body %}
 {{ form_start(form) }}
 <div class="col-md-4">{{ form_row(form.title) }}</div>
 <div class="col-md-2">{{ form_row(form.price) }}</div>
@@ -5,5 +6,9 @@
 <div class="col-md-2">{{ form_row(form.city) }}</div>
 
 {{ form_widget(form) }}
+{% if form.subcategory is defined %}
+    <div class="col-md-2">{{ form_row(form.subcategory) }}</div>
+{% endif %}
 <button class="btn btn-primary">{{ button| default('Enregistrer')}}</button>
 {{ form_end(form) }}
+{% endblock %}

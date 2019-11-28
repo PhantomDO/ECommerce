@@ -30,11 +30,19 @@ class PropertyType extends AbstractType
                 ]
             ])
             ->add('category', EntityType::class,[
+                'required' => false,
+                'label' => false,
                 'class' => Category::class,
+                'placeholder' => 'Select a category',
+                'mapped' => false,
                 'choice_label' => "name"
             ])
             ->add('subcategory', EntityType::class,[
+                'required' => false,
+                'label' => false,
                 'class' => SubCategory::class,
+                'placeholder' => 'Select a category',
+                'mapped' => false,
                 'choice_label' => "name"
             ])
             ->add('imageFile',FileType::class,[
@@ -66,6 +74,8 @@ class PropertyType extends AbstractType
                     dump("C'est blindé");
                     $category = $subcategory->getCategory();
                     $this->addSubCategoryField($form, $category);
+                    $form->get('title')->setData($data->getTitle());
+                    $form->get('price')->setData($data->getPrice());
                     $form->get('category')->setData($category);
                     $form->get('subcategory')->setData($subcategory);
                 }
