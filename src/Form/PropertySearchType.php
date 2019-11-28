@@ -37,7 +37,7 @@ class PropertySearchType extends AbstractType
                 'class' => Category::class,
                 'placeholder' => 'Select a category',
                 'mapped' => true,
-                'choice_label' => 'name'
+                'choice_label' => "name"
             ])
 
             /*->add('subcategory', EntityType::class, [
@@ -105,7 +105,7 @@ class PropertySearchType extends AbstractType
                     'class' => SubCategory::class,
                     'placeholder' => $category ? 'Select a category' : 'Please preselect',
                     'mapped' => true,
-                    'choice_label' => 'name',
+                    'choice_label' => "name",
                     'auto_initialize' => false,
                     'choices' => $category ? $category->getSubcategory() : []
                 ]);
