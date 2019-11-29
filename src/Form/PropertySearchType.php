@@ -45,9 +45,9 @@ class PropertySearchType extends AbstractType
                 'required' => false,
                 'label' => false,
                 'class' => SubCategory::class,
-                'choice_label' => function(){
-
-                }
+                'placeholder' => 'Select a category',
+                'mapped' => true,
+                'choice_label' => "name"
             ])
         ;
 
@@ -70,7 +70,7 @@ class PropertySearchType extends AbstractType
                 /* @var $subcategory SubCategory */
                 $subcategory = $data->getSubcategory();
 
-                if ($subcategory)
+                if (null !== $subcategory)
                 {
                     dump("C'est blindé");
                     $category = $subcategory->getCategory();

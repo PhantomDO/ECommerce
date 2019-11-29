@@ -34,7 +34,7 @@ class PropertyType extends AbstractType
                 'label' => false,
                 'class' => Category::class,
                 'placeholder' => 'Select a category',
-                'mapped' => false,
+                'mapped' => true,
                 'choice_label' => "name"
             ])
             ->add('subcategory', EntityType::class,[
@@ -42,7 +42,7 @@ class PropertyType extends AbstractType
                 'label' => false,
                 'class' => SubCategory::class,
                 'placeholder' => 'Select a category',
-                'mapped' => false,
+                'mapped' => true,
                 'choice_label' => "name"
             ])
             ->add('imageFile',FileType::class,[
@@ -69,13 +69,11 @@ class PropertyType extends AbstractType
                 /* @var $subcategory SubCategory */
                 $subcategory = $data->getSubcategory();
 
-                if ($subcategory)
+                if (null !== $subcategory)
                 {
                     dump("C'est blindé");
                     $category = $subcategory->getCategory();
                     $this->addSubCategoryField($form, $category);
-                    $form->get('title')->setData($data->getTitle());
-                    $form->get('price')->setData($data->getPrice());
                     $form->get('category')->setData($category);
                     $form->get('subcategory')->setData($subcategory);
                 }

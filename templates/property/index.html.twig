@@ -17,6 +17,11 @@
                     <div class="col" id="category">
                         {{ form_row(form.category) }}
                     </div>
+                    {% if form.category is defined %}
+                        <div class="col">
+                            {{ form_row(form.subcategory) }}
+                        </div>
+                    {% endif %}
                     <div class="col">
                         <div class="form-group">
                             <button class="btn btn-primary">Search</button>
