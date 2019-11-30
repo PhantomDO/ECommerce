@@ -9,8 +9,11 @@ use App\Form\PropertyType;
 use App\Form\UserType;
 use App\Entity\Property;
 
+use App\Repository\PropertyRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,27 +22,17 @@ use Doctrine\ORM\EntityManagerInterface;
 class SearchController extends AbstractController
 {
     /**
-     * @Route("/search_api", name="search_api")
+     * @var PropertyRepository
      */
-    public function SearchApi(Request $request, EntityManagerInterface $em)
+    private $repository;
+
+    private $entityManager;
+
+    public function __construct(PropertyRepository $repository, EntityManagerInterface $entityManager)
     {
-        // Recup property de recherche et son form
-        $search = new PropertySearch();
-
-        $form = $this->createForm(PropertySearchType::class, $search);
-        // Test d'envoie du form
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid())
-        {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->flush();
-            // Renvoie la page
-            return $this->redirectToRoute("search_api");
-        }
-
-        return $this->render(
-            'search/search.html.twig',
-            array('form' => $form->createView())
-        );
+        $this->repository = $repository;
+        $this->entityManager = $entityManager;
     }
+
+
 }

@@ -10,6 +10,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use phpDocumentor\Reflection\DocBlock\Tags\Property;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -62,6 +63,32 @@ class PropertyController extends AbstractController
             'properties' => $properties,
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/biens/api", name="property.api")
+     */
+    public function api(PaginatorInterface $paginator, Request $request) : JsonResponse
+    {
+        $search = new PropertySearch();
+
+        $form = $this->createForm(PropertySearchType::class, $search);
+        // Test d'envoie du form
+        $form->handleRequest($request);
+
+        $properties = [];
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->flush();
+
+            $properties = $this->repository->findAllVisibleQueryJSON($search);
+            return new JsonResponse(['results' => $properties]);
+        }
+
+        $properties = $this->repository->findAllVisibleQueryJSON($search);
+        return new JsonResponse(['results' => $properties]);
     }
 
     /**

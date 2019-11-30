@@ -11,6 +11,7 @@ use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\Query;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\Query\Expr\Join as Join;
+use phpDocumentor\Reflection\Types\Object_;
 
 /**
  * @method Property|null find($id, $lockMode = null, $lockVersion = null)
@@ -26,9 +27,9 @@ class PropertyRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return Property[]
+     * @return Query
      */
-    public function findAllVisibleQuery(PropertySearch $search) : array
+    public function findAllVisibleQuery(PropertySearch $search) : Query
     {
         $query = $this->findVisibleQuery();
 
@@ -56,7 +57,41 @@ class PropertyRepository extends ServiceEntityRepository
                 ->setParameter('subcategory', $search->getSubcategory());
         }
 
-        return $query->getQuery()->getResult();
+        return $query->getQuery();
+    }
+
+    /**
+     * @return Property[]
+     */
+    public function findAllVisibleQueryJSON(PropertySearch $search) : array
+    {
+        $query = $this->findVisibleQuery();
+
+        if ($search->getMaxPrice()){
+            $query = $query
+                ->andWhere('p.price <= :maxprice')
+                ->setParameter('maxprice', $search->getMaxPrice());
+        }
+
+        if ($search->getKeyword()){
+            $query = $query
+                ->andWhere('p.title LIKE :keyword')
+                ->setParameter('keyword', '%' . $search->getKeyword() . '%');
+        }
+
+        if($search->getCategory()){
+            $query = $query
+                ->andWhere(':category = p.category')
+                ->setParameter('category', $search->getCategory());
+        }
+        if($search->getSubcategory())
+        {
+            $query = $query
+                ->andWhere(':subcategory = p.subcategory')
+                ->setParameter('subcategory', $search->getSubcategory());
+        }
+
+        return $query->getQuery()->getArrayResult();
     }
 
     /**
