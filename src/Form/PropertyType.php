@@ -65,13 +65,13 @@ class PropertyType extends AbstractType
                 $form = $event->getForm();
                 $data = $event->getData();
 
-                dump($data);
+                //dump($data);
                 /* @var $subcategory SubCategory */
                 $subcategory = $data->getSubcategory();
 
                 if (null !== $subcategory)
                 {
-                    dump("C'est blindé");
+                    //dump("C'est blindé");
                     $category = $subcategory->getCategory();
                     $this->addSubCategoryField($form, $category);
                     $form->get('category')->setData($category);
@@ -79,7 +79,7 @@ class PropertyType extends AbstractType
                 }
                 else
                 {
-                    dump("C'est nul");
+                    //dump("C'est nul");
                     $this->addSubCategoryField($form, null);
                 }
             }
@@ -115,7 +115,7 @@ class PropertyType extends AbstractType
         $builder->addEventListener(
             FormEvents::POST_SUBMIT,
             function (FormEvent $event) {
-                dump($event->getForm());
+                //dump($event->getForm());
             }
         );
 
