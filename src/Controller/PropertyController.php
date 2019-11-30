@@ -68,15 +68,13 @@ class PropertyController extends AbstractController
     /**
      * @Route("/biens/api", name="property.api")
      */
-    public function api(PaginatorInterface $paginator, Request $request) : JsonResponse
+    public function api(PaginatorInterface $paginator, Request $request)
     {
         $search = new PropertySearch();
 
         $form = $this->createForm(PropertySearchType::class, $search);
         // Test d'envoie du form
         $form->handleRequest($request);
-
-        $properties = [];
 
         if ($form->isSubmitted() && $form->isValid())
         {
@@ -87,8 +85,17 @@ class PropertyController extends AbstractController
             return new JsonResponse(['results' => $properties]);
         }
 
-        $properties = $this->repository->findAllVisibleQueryJSON($search);
-        return new JsonResponse(['results' => $properties]);
+        $properties = $paginator->paginate(
+            $this->repository->findAllVisibleQuery($search),
+            $request->query->getInt('page', 1),
+            12
+        );
+
+        return $this->render('property/index.html.twig', [
+            'current_menu' => 'properties',
+            'properties' => $properties,
+            'form' => $form->createView()
+        ]);
     }
 
     /**
