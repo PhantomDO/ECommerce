@@ -6,6 +6,10 @@
 
     <div class="container mt-4">
         <h1>Gerer les biens des frates</h1>
+
+        <div class="text-right">
+            <a href="{{ path('user.update') }}" class="btn btn-primary">Changer ses informations</a>
+        </div>
         {% for message in app.flashes('success') %}
             <div class="alert alert-success">
                 {{ message }}

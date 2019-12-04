@@ -17,7 +17,7 @@ use Symfony\Component\Security\Core\Security;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/register", name="user.registration")
+     * @Route("/user/register", name="user.registration")
      */
     public function Register(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
@@ -49,7 +49,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/update", name="user.update")
+     * @Route("/user/update", name="user.update")
      * @param Request $request
      * @param Security $security
      */
@@ -74,7 +74,7 @@ class UserController extends AbstractController
                 $entityManager->flush();
 
                 // Renvoie la page
-                return $this->redirectToRoute("user.update");
+                return $this->redirectToRoute("logout");
             }
 
             return $this->render(
