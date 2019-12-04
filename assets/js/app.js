@@ -26,7 +26,7 @@ $(document).on('change', '#property_category', '#property_subcategory', function
     })
 })
 
-$(document).on('change', '#category', '#subcategory', function(){
+$(document).on('change', '#category', '#subcategory', function() {
     let $field = $(this);
     let $form = $field.closest('form');
     let data = {}

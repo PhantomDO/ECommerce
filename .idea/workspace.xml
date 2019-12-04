@@ -3,8 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="a7c7ecac-898d-4141-89db-832645618caf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/PropertySearchType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PropertySearchType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/PropertyType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PropertyType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/effect.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/effect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/PropertySearch.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/PropertySearch.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190924132800.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190924133516.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191016124655.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191016135734.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191123115637.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191123120031.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191123120825.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191123121200.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191123170002.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191124124321.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191127082752.php" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -182,15 +196,15 @@
     <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\IUT Projet\Symfony\ECommerce\src\Controller\Admin" />
+      <recent name="C:\Users\Herst\TutoProjetSymf\templates\pages" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\IUT Projet\Symfony\ECommerce\templates\admin\subcategory" />
       <recent name="C:\IUT Projet\Symfony\ECommerce\templates\admin\category" />
       <recent name="C:\Users\donno\Documents\IUT\PHP\PROJET\ECommerce\templates\user" />
       <recent name="C:\Users\donno\Documents\IUT\PHP\PROJET\ECommerce\src\Controller" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\IUT Projet\Symfony\ECommerce\src\Controller\Admin" />
-      <recent name="C:\Users\Herst\TutoProjetSymf\templates\pages" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -257,6 +271,11 @@
       <workItem from="1575013483098" duration="4181000" />
       <workItem from="1575021128493" duration="52000" />
       <workItem from="1575109194203" duration="3778000" />
+      <workItem from="1575272345272" duration="10000" />
+      <workItem from="1575287169406" duration="2000" />
+      <workItem from="1575293330781" duration="179000" />
+      <workItem from="1575302248226" duration="18000" />
+      <workItem from="1575449009779" duration="6050000" />
     </task>
     <servers />
   </component>

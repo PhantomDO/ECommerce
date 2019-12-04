@@ -57,9 +57,15 @@ class User implements UserInterface, \Serializable
      */
     private $properties;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Messages", mappedBy="user1")
+     */
+    private $messages;
+
     public function __construct() {
         $this->roles = array('ROLE_USER');
         $this->properties = new ArrayCollection();
+        $this->messages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -175,6 +181,34 @@ class User implements UserInterface, \Serializable
             if ($property->getUsername() === $this) {
                 $property->setUsername(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Messages[]
+     */
+    public function getMessages(): Collection
+    {
+        return $this->messages;
+    }
+
+    public function addMessage(Messages $message): self
+    {
+        if (!$this->messages->contains($message)) {
+            $this->messages[] = $message;
+            $message->addUser1($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessage(Messages $message): self
+    {
+        if ($this->messages->contains($message)) {
+            $this->messages->removeElement($message);
+            $message->removeUser1($this);
         }
 
         return $this;

@@ -4,6 +4,7 @@
 namespace App\Entity;
 
 
+use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class PropertySearch
@@ -14,6 +15,8 @@ class PropertySearch
     private $maxPrice;
 
     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="properties")
+     * @ORM\JoinColumn(nullable=false)
      * @var string|null
      */
     private $category;
@@ -24,6 +27,7 @@ class PropertySearch
     private $subcategory;
 
     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\SubCategory", inversedBy="properties")
      * @var string|null
      */
     private $keyword;
@@ -32,6 +36,13 @@ class PropertySearch
      * @var App\Entity\User|null
      */
     private $username;
+
+    public function __construct()
+    {
+        $property = new Property();
+        $this->category = $property->getCategory();
+        $this->subcategory = $property->getSubCategory();
+    }
 
     /**
      * @return int|null
