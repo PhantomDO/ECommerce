@@ -8,13 +8,14 @@
     "license": "UNLICENSED",
     "private": true,
     "scripts": {
-        "start": "node index.js",
-        "build": "install @symfony/webpack-encore --save-dev",
+        "start": "node src/index.js",
+        "build": "webpack",
         "dev-server": "encore dev-server",
         "dev": "encore dev",
         "watch": "encore dev --watch",
-        "heroku-postbuild": "encore production --progress"
+        "postinstall": "encore production --progress"
     },
+    "heroku-run-build-script": true,
     "dependencies": {
         "jquery": "^3.4.1",
         "pg": "^7.14.0"
