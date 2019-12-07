@@ -12,8 +12,7 @@
         "build": "webpack",
         "dev-server": "encore dev-server",
         "dev": "encore dev",
-        "watch": "encore dev --watch",
-        "postinstall": "encore production --progress"
+        "watch": "encore dev --watch"
     },
     "heroku-run-build-script": true,
     "dependencies": {
