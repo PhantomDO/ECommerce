@@ -8,12 +8,10 @@
     "license": "UNLICENSED",
     "private": true,
     "scripts": {
-        "start": "node index.js",
-        "heroku-prebuild": "webpack",
         "dev-server": "encore dev-server",
         "dev": "encore dev",
         "watch": "encore dev --watch",
-        "build": "encore production --progress"
+        "postinstall": "encore production --progress"
     },
     "dependencies": {
         "jquery": "^3.4.1",
