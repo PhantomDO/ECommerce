@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7c7ecac-898d-4141-89db-832645618caf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -188,6 +189,7 @@
       <recent name="C:\Users\donno\Documents\IUT\PHP\PROJET\ECommerce\src\Controller" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\donno\Documents\IUT\PHP\PROJET\Deployy\ECommerce\public" />
       <recent name="C:\Users\donno\Documents\IUT\PHP\PROJET\Deployy\ECommerce" />
       <recent name="C:\IUT Projet\Symfony\ECommerce\src\Controller\Admin" />
       <recent name="C:\Users\Herst\TutoProjetSymf\templates\pages" />
