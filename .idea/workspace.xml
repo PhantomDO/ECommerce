@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7c7ecac-898d-4141-89db-832645618caf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clevercloud/php.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -263,7 +264,7 @@
       <workItem from="1575449009779" duration="6050000" />
       <workItem from="1575468623295" duration="79000" />
       <workItem from="1575625655341" duration="3000" />
-      <workItem from="1575706117596" duration="584000" />
+      <workItem from="1575706117596" duration="2078000" />
     </task>
     <servers />
   </component>
