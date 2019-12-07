@@ -9,6 +9,7 @@
     "private": true,
     "scripts": {
         "start": "node index.js",
+        "build": "install @symfony/webpack-encore --save-dev",
         "dev-server": "encore dev-server",
         "dev": "encore dev",
         "watch": "encore dev --watch",
