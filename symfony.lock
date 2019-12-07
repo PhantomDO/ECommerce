@@ -96,9 +96,6 @@
     "doctrine/reflection": {
         "version": "v1.0.0"
     },
-    "easycorp/easy-deploy-bundle": {
-        "version": "v1.0.5"
-    },
     "easycorp/easy-log-handler": {
         "version": "1.0",
         "recipe": {
@@ -159,9 +156,6 @@
     },
     "ocramius/proxy-manager": {
         "version": "2.2.3"
-    },
-    "php": {
-        "version": "7.3"
     },
     "phpdocumentor/reflection-common": {
         "version": "2.0.0"
