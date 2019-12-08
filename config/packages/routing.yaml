@@ -3,8 +3,5 @@ framework:
         strict_requirements: null
         utf8: true
 
-    _imagine:
-        resource: .
-        type:     imagine
 
 
