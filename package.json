@@ -9,10 +9,10 @@
     "private": true,
     "scripts": {
         "start": "node src/index.js",
-        "heroku-postbuild": "webpack",
         "dev-server": "encore dev-server",
         "dev": "encore dev",
-        "watch": "encore dev --watch"
+        "watch": "encore dev --watch",
+        "heroku-postbuild": "encore production --progress"
     },
     "heroku-run-build-script": true,
     "dependencies": {

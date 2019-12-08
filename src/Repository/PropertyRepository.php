@@ -120,6 +120,7 @@ class PropertyRepository extends ServiceEntityRepository
     {
         return $this->findVisibleQuery()
             ->setMaxResults('4')
+            ->orderBy('p.created_at', 'ASC')
             ->getQuery()
             ->getResult();
     }
