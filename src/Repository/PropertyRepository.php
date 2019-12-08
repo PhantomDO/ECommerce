@@ -57,7 +57,9 @@ class PropertyRepository extends ServiceEntityRepository
                 ->setParameter('subcategory', $search->getSubcategory());
         }
 
-        return $query->getQuery();
+        return $query
+            ->orderBy('p.created_at', 'DESC')
+            ->getQuery();
     }
 
     /**
@@ -91,7 +93,9 @@ class PropertyRepository extends ServiceEntityRepository
                 ->setParameter('subcategory', $search->getSubcategory());
         }
 
-        return $query->getQuery()->getArrayResult();
+        return $query
+            ->orderBy('p.created_at', 'DESC')
+            ->getQuery()->getArrayResult();
     }
 
     /**
@@ -106,7 +110,8 @@ class PropertyRepository extends ServiceEntityRepository
             $query = $query
                 ->leftJoin('p.username', 'u')
                 ->andWhere('u.id = :user')
-                ->setParameter('user', $search->getId());
+                ->setParameter('user', $search->getId())
+                ->orderBy('p.created_at', 'DESC');
         }
 
         //dd($query->getQuery());
@@ -120,7 +125,7 @@ class PropertyRepository extends ServiceEntityRepository
     {
         return $this->findVisibleQuery()
             ->setMaxResults('4')
-            ->orderBy('p.created_at', 'ASC')
+            ->orderBy('p.created_at', 'DESC')
             ->getQuery()
             ->getResult();
     }

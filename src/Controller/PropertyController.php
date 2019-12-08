@@ -81,7 +81,7 @@ class PropertyController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->flush();
 
-            $properties = $this->repository->findAllVisibleQueryJSON($search);
+            $properties = $this->repository->findAllVisibleQuery($search)->getArrayResult();
             return new JsonResponse(['results' => $properties]);
         }
 
