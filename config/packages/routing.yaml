@@ -1,7 +1,3 @@
-_imagine:
-    resource: .
-    type:     imagine
-
 framework:
     router:
         strict_requirements: null
