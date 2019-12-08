@@ -18,6 +18,10 @@ liip_imagine:
     data_loader: default
     cache: default
 
+    controller:
+        filter_action:         liip_imagine.controller:filterAction
+        filter_runtime_action: liip_imagine.controller:filterRuntimeAction
+
     filter_sets:
         thumb:
             quality: 75
