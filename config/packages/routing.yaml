@@ -1,6 +1,4 @@
-liip_imagine:
-    resource: .
-    type:     imagine
+
 
 framework:
     router:
