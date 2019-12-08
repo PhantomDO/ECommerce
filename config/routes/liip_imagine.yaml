@@ -1,2 +1,6 @@
 _liip_imagine:
     resource: "@LiipImagineBundle/Resources/config/routing.yaml"
+    loaders:
+        default:
+            filesystem:
+                data_root: "/"
