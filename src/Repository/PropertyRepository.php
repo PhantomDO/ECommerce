@@ -63,42 +63,6 @@ class PropertyRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return Property[]
-     */
-    public function findAllVisibleQueryJSON(PropertySearch $search) : array
-    {
-        $query = $this->findVisibleQuery();
-
-        if ($search->getMaxPrice()){
-            $query = $query
-                ->andWhere('p.price <= :maxprice')
-                ->setParameter('maxprice', $search->getMaxPrice());
-        }
-
-        if ($search->getKeyword()){
-            $query = $query
-                ->andWhere('p.title LIKE :keyword')
-                ->setParameter('keyword', '%' . $search->getKeyword() . '%');
-        }
-
-        if($search->getCategory()){
-            $query = $query
-                ->andWhere(':category = p.category')
-                ->setParameter('category', $search->getCategory());
-        }
-        if($search->getSubcategory())
-        {
-            $query = $query
-                ->andWhere(':subcategory = p.subcategory')
-                ->setParameter('subcategory', $search->getSubcategory());
-        }
-
-        return $query
-            ->orderBy('p.created_at', 'DESC')
-            ->getQuery()->getArrayResult();
-    }
-
-    /**
      * @param $search
      * @return Property[]
      */
