@@ -15,6 +15,14 @@
                 <div class="col-3">
                     <div class="card">
                         <div class="card-body">
+                            <div class="col-md-8">
+                                {% if property.filename %}
+                                    <img src="{{vich_uploader_asset(property,'imageFile') | imagine_filter('medium') }}" alt="card-img-top" style="width:100%;height: auto;">
+                                {% else %}
+                                    <img src="{{'/images/properties/julien.jpg' | imagine_filter('medium') }}" alt="card-img-top" style="width:100%;height: auto;">
+                                {% endif %}
+
+                            </div>
                             <h5 class="card-title">
                                 <a href="{{ path('property.show', {id: property.id, slug: property.slug}) }}">{{ property.title }}</a>
                             </h5>
